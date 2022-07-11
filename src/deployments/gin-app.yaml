@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment                 # Type of Kubernetes resource
 metadata:
   name: gin-redis-app             # Unique name of the Kubernetes resource
+  namespace: gin-test
 spec:
   replicas: 3                    # Number of pods to run at any given time
   selector:
@@ -32,6 +33,7 @@ apiVersion: v1
 kind: Service                    # Type of kubernetes resource
 metadata:
   name: gin-redis-app-service     # Unique name of the resource
+  namespace: gin-test
 spec:
   ports:                         # Take incoming HTTP requests on port 9090 and forward them to the targetPort of 8080
     - name: http
